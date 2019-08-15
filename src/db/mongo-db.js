@@ -2,9 +2,11 @@
 
 const mongodb = require('mongodb');
 const MongoClient = mongodb.MongoClient;
+const utils = require('../utils/utils')
 
-const connectionUrl = 'mongodb://127.0.0.1:27017'
-const databaseName = 'task-manager-db'
+
+const connectionUrl = utils.envProps.getProperty('DB_CONNECTION_URL')
+const databaseName = utils.envProps.getProperty('DATABASE_NAME')
 
 MongoClient.connect(connectionUrl, { useNewUrlParser: true }, (error, client) => {
     if (error) {

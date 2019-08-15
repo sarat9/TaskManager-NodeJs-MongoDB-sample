@@ -1,20 +1,7 @@
 const express = require('express')
-
 const { User } = require('../../model/models')
 const bcrypt = require('bcrypt')
-
 const router = express.Router();
-
-
-router.post('/users/login', async (req, res) => {
-    try {
-        const user = await User.findByCredentials(req.body.email, req.body.password);
-        res.send(user)
-    }
-    catch (err) {
-        res.status(400).send(err)
-    }
-})
 
 
 router.get('/users', (req, res) => {
